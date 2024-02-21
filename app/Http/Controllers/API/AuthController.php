@@ -12,10 +12,9 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+            'email' => ['required', 'email', 'string'],
+            'password' => ['required', 'string', 'min:8'],
         ]);
 
         $user = User::where('email', $request->email)->first();
@@ -26,13 +25,12 @@ class AuthController extends Controller
             ]);
         }
 
-        $token = $user->createToken('token-name')->plainTextToken;
-
+        $token = $user->createToken('token')->plainTextToken;
         return response()->json([
-            'status' => 'success',
-            'user' => $user,
+            'message' => 'Login success',
             'token' => $token,
-        ], 200);
+            'token_type' => 'Bearer'
+        ], 201);
     }
 
     public function logout(Request $request)
@@ -40,7 +38,7 @@ class AuthController extends Controller
         $request->user()->tokens()->delete();
 
         return response()->json([
-            'message' => 'Logged out',
-        ]);
+            'message' => 'Logged Out!'
+        ], 202);
     }
 }
