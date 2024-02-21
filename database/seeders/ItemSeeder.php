@@ -15,19 +15,16 @@ class ItemSeeder extends Seeder
     {
         $items = [
             [
-                'name' => 'Extra Baterry',
+                'name' => 'Baterry',
                 'stock' => '100',
-                'price' => '50000',
             ],
             [
                 'name' => 'Charger Baterry',
                 'stock' => '100',
-                'price' => '60000',
             ],
             [
                 'name' => 'Landing Pad',
                 'stock' => '100',
-                'price' => '50000',
             ],
         ];
 
