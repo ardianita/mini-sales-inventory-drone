@@ -10,5 +10,5 @@ class Incoming extends Model
     use HasFactory;
 
     protected $table = 'incomings';
-    protected $fillable = ['item_id', 'jumlah', 'date'];
+    protected $fillable = ['item_id', 'jumlah'];
 }

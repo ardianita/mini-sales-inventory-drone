@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('item_id')->references('id')->on('items')->cascadeOnDelete();
             $table->string('jumlah');
-            $table->string('date');
             $table->timestamps();
         });
     }
